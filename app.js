@@ -4,7 +4,11 @@ console.log("hello world");
 let catPetTotal = 0;
 let catPetPerSec = 0;
 
-// if local storage has values, update them to that
+let petTotal = localStorage.getItem("petTotal");
+let petPerSec = localStorage.getItem("petPerSec");
+
+catPetTotal = Number(petTotal);
+catPetPerSec = Number(petPerSec);
 
 //Shop
 
@@ -57,6 +61,18 @@ setInterval(function () {
   catPetTotal += catPetPerSec;
   petsTotalHeader.textContent = `Number of cat pets: ${catPetTotal}`;
   ppsHeader.textContent = `Cat pets per second: ${catPetPerSec}`;
+  localStorage.setItem("petTotal", catPetTotal);
+  localStorage.setItem("petPerSec", catPetPerSec);
 }, 1000);
 
-//
+// clicking the cat to get a pet
+
+const catImage = document.getElementById("cat-image");
+
+function clickCat() {
+  catPetTotal += 1;
+  petsTotalHeader.textContent = `Number of cat pets: ${catPetTotal}`;
+  localStorage.setItem("petTotal", catPetTotal);
+}
+
+catImage.addEventListener("click", clickCat);

@@ -10,6 +10,14 @@ let petPerSec = localStorage.getItem("petPerSec");
 catPetTotal = Number(petTotal);
 catPetPerSec = Number(petPerSec);
 
+const clearData = document.getElementById("clearData");
+
+clearData.addEventListener("click", function () {
+  localStorage.clear();
+  catPetTotal = 0;
+  catPetPerSec = 0;
+});
+
 //Shop
 
 const changeNames = [
@@ -59,6 +67,7 @@ function makeTheShop(array) {
 async function putShopAndArray() {
   const fetchedArray = await getShopAPI();
   makeTheShop(fetchedArray);
+  shopButton(fetchedArray);
 }
 
 putShopAndArray();
@@ -91,4 +100,21 @@ function clickCat() {
 
 catImage.addEventListener("click", clickCat);
 
-// Shop button functions
+// function for the shop buttons
+
+function shopButton(array) {
+  for (let i = 0; i < array.length; i++) {
+    buyButton = document.getElementById(`button${array[i].id}`);
+    buyButton.addEventListener("click", function () {
+      if (catPetTotal > array[i].cost) {
+        buyButton = document.getElementById(`button${array[i].id}`);
+        catPetPerSec += array[i].increase;
+        catPetTotal -= array[i].cost;
+        localStorage.setItem("petPerSec", catPetPerSec);
+        localStorage.setItem("petTotal", catPetTotal);
+        petsTotalHeader.textContent = `Number of cat pets: ${catPetTotal}`;
+        ppsHeader.textContent = `Cat pets per second: ${catPetPerSec}`;
+      }
+    });
+  }
+}

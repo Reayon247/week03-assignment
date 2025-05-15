@@ -29,8 +29,12 @@ function makeTheShop(array) {
     newH3 = document.createElement("h3");
     newH3.textContent = `Upgrade: ${array[i].name}`;
 
+    newButton = document.createElement("button");
+    newButton.textContent = `Cost: ${array[i].cost}`;
+
     shopContainer.appendChild(newDiv);
     newDiv.appendChild(newH3);
+    newDiv.appendChild(newButton);
   }
 }
 
@@ -40,3 +44,19 @@ async function putShopAndArray() {
 }
 
 putShopAndArray();
+
+// updating the cat pet count
+
+let petsTotalHeader = document.getElementById("numcat");
+let ppsHeader = document.getElementById("Pps");
+
+petsTotalHeader.textContent = `Number of cat pets: ${catPetTotal}`;
+ppsHeader.textContent = `Cat pets per second: ${catPetPerSec}`;
+
+setInterval(function () {
+  catPetTotal += catPetPerSec;
+  petsTotalHeader.textContent = `Number of cat pets: ${catPetTotal}`;
+  ppsHeader.textContent = `Cat pets per second: ${catPetPerSec}`;
+}, 1000);
+
+//

@@ -12,6 +12,19 @@ catPetPerSec = Number(petPerSec);
 
 //Shop
 
+const changeNames = [
+  "2 handed pets",
+  "A helping hand",
+  "A Brush",
+  "Need more hands",
+  "Luxury cat spa trip",
+  "Nuclear Robot petter",
+  "Magic cat pets",
+  "Alien cat petting technique",
+  "Quantum fused pets",
+  "Time manipulated pets",
+];
+
 const shopContainer = document.getElementById("store");
 
 async function getShopAPI() {
@@ -31,10 +44,11 @@ function makeTheShop(array) {
     newDiv.className = "shop-upgrade";
 
     newH3 = document.createElement("h3");
-    newH3.textContent = `Upgrade: ${array[i].name}`;
+    newH3.textContent = `Upgrade: ${changeNames[i]}`;
 
     newButton = document.createElement("button");
     newButton.textContent = `Cost: ${array[i].cost}`;
+    newButton.id = `button${array[i].id}`;
 
     shopContainer.appendChild(newDiv);
     newDiv.appendChild(newH3);
@@ -76,3 +90,5 @@ function clickCat() {
 }
 
 catImage.addEventListener("click", clickCat);
+
+// Shop button functions

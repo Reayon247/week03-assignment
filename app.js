@@ -53,10 +53,12 @@ function makeTheShop(array) {
 
     newH3 = document.createElement("h3");
     newH3.textContent = `Upgrade: ${changeNames[i]}`;
+    newH3.className = "shop-names";
 
     newButton = document.createElement("button");
     newButton.textContent = `Cost: ${array[i].cost}`;
     newButton.id = `button${array[i].id}`;
+    newButton.className = "shop-buttons";
 
     shopContainer.appendChild(newDiv);
     newDiv.appendChild(newH3);

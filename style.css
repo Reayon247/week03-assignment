@@ -5,13 +5,22 @@
 }
 
 body {
-  background-color: aquamarine;
+  background-color: grey;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr, 1fr;
+  height: 100dvh;
+  width: 100dvw;
 }
 h1 {
   padding: 10px;
+  color: aliceblue;
+}
+#numcat {
+  color: aliceblue;
+}
+#Pps {
+  color: aliceblue;
 }
 
 #main {
@@ -20,7 +29,9 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-bottom: 10px solid black;
+  border-bottom: 2px solid black;
+  background-image: url(Assets/space.gif);
+  background-size: cover;
 }
 
 #store {
@@ -29,4 +40,71 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  display: grid;
+  overflow: auto;
+  background-image: url(Assets/space\ 2.gif);
+  background-size: cover;
+}
+
+.shop-upgrade {
+  border-top: 1px white solid;
+  border-left: 1px white solid;
+  border-right: 1px white solid;
+  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
+  height: 6rem;
+}
+
+.store-header {
+  text-align: center;
+  color: aliceblue;
+}
+
+.shop-buttons {
+  margin: 10px;
+  background-color: gray;
+  width: 5rem;
+  height: 4rem;
+  align-self: flex-end;
+}
+.shop-names {
+  color: aliceblue;
+  width: fit-content;
+}
+
+#clearData {
+  align-self: flex-start;
+  justify-self: flex-end;
+  margin: 10px;
+  padding: 5px;
+}
+
+@media (min-width: 800px) {
+  body {
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
+    height: 100dvh;
+  }
+
+  #main {
+    border-bottom: 0;
+    border-right: 2px solid black;
+    justify-content: center;
+  }
+
+  #clearData {
+    position: absolute;
+    bottom: 10px;
+    margin: 20px;
+    padding: 10px;
+  }
+
+  #cat-image {
+    width: 30rem;
+  }
+  #store {
+    grid-column: 2, 3;
+    grid-row: 1, 2;
+  }
 }

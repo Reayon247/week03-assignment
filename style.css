@@ -80,6 +80,30 @@ h1 {
   padding: 5px;
 }
 
+#cat-image {
+  animation-name: spin;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#cat-image:hover {
+  animation-name: none;
+}
+
+#cat-image:active {
+  transform: scale(1.1);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(-20deg);
+  }
+  to {
+    transform: rotate(20deg);
+  }
+}
+
 @media (min-width: 800px) {
   body {
     grid-template-columns: 2fr 1fr;

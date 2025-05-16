@@ -47,9 +47,7 @@ h1 {
 }
 
 .shop-upgrade {
-  border-top: 1px white solid;
-  border-left: 1px white solid;
-  border-right: 1px white solid;
+  border: 1px solid white;
   grid-template-columns: 1fr;
   display: flex;
   flex-direction: column;

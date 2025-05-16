@@ -108,7 +108,7 @@ function shopButton(array) {
   for (let i = 0; i < array.length; i++) {
     buyButton = document.getElementById(`button${array[i].id}`);
     buyButton.addEventListener("click", function () {
-      if (catPetTotal > array[i].cost) {
+      if (catPetTotal >= array[i].cost) {
         buyButton = document.getElementById(`button${array[i].id}`);
         catPetPerSec += array[i].increase;
         catPetTotal -= array[i].cost;
